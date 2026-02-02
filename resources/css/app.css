@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@plugin "daisyui";
+
+
+
+/* Variables de tema (opcional pero recomendado) */
+@theme {
+    --height-header: 4rem;
+    --height-main: 65vh;
+    --height-header: 15vh;
+    --height-nav: 10vh;
+    --height-footer: 10vh;
+
+    --color-header: #dbfcff;
+    --color-nav: #b0a1ba;
+    --color-main: #b8e2c8;
+    --color-footer: #b0a1ba;
+}
+
+
+
