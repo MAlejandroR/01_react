@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 Route::get("/", fn()=>Inertia::render("Main"))->name('main');
+Route::get("/crono", fn()=>Inertia::render("Cronometro"))->name('cronometro');
 /*
 Route::get('/', function () {
     return Inertia::render('Welcome', [

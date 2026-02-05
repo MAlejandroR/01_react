@@ -12,9 +12,7 @@ export default function Main() {
 
     const openLogin = () => setShowLogin(true);
     const closeLogin =() => setShowLogin(false);
-    const projects = () => {
-        router.get('projects');
-    };
+
     return (
         <>
             <Layout onLoginClick={openLogin}>
@@ -67,7 +65,7 @@ export default function Main() {
                                     </p>
                                     <div className="card-actions justify-end">
                                         <Link
-                                            href={projects}
+                                            href="projects"
                                             className="btn btn-primary"
                                         >
                                             Gestionar Proyectos
@@ -91,7 +89,7 @@ export default function Main() {
                                     </p>
                                     <div className="card-actions justify-end">
                                         <Link
-                                            href={projects}
+                                            href="crono"
                                             className="btn btn-primary"
                                         >
                                             Ver cronómetro funcionando
