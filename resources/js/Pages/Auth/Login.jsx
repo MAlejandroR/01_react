@@ -17,21 +17,24 @@ export default function Login({ status, canResetPassword, onSuccess }) {
         e.preventDefault();
 
         post(route('login'), {
-            onSuccess:() => {
-                reset ('password');
+            onFinish: () => reset('password'),
+            onSuccess:()=>{
                 onSuccess?.();
+                reset('password');
             }
         });
     };
 
     return (
-        <div className="p-4 ">
+        // <GuestLayout>
+        //     <Head title="Log in" />
+        //
+        //     {status && (
+        //         <div className="mb-4 text-sm font-medium text-green-600">
+        //             {status}
+        //         </div>
+        //     )}
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600">
-                    {status}
-                </div>
-            )}
 
             <form onSubmit={submit}>
                 <div>
@@ -86,7 +89,7 @@ export default function Login({ status, canResetPassword, onSuccess }) {
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
                         >
                             Forgot your password?
                         </Link>
@@ -97,7 +100,6 @@ export default function Login({ status, canResetPassword, onSuccess }) {
                     </PrimaryButton>
                 </div>
             </form>
-        </div>
+        // </GuestLayout>
     );
-
 }

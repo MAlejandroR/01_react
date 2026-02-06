@@ -10,5 +10,8 @@ class Project extends Model
     /** @use HasFactory<\Database\Factories\ProjectFactory> */
     use HasFactory;
     protected $fillable =["name", "description", "hours", "starting_date"] ;
+    public static function getFields(){
+        return ["Nombre", "Descripción", "Horas", "Fecha de comienzo"];
+    }
 
 }

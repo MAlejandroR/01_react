@@ -20,3 +20,4 @@ services:
       - 8100:80
 volumes:
   mysql:
+  vendor_data:

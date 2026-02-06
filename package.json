@@ -6,8 +6,8 @@
         "build": "vite build",
         "dev": "vite",
         "lint": "eslint resources/js --ext .js,.jsx --ignore-path .gitignore --fix",
-        "local": "docker compose up -d && concurrently \"npm run dev\" \"php artisan serve\"  ",
-        "local2": "concurrently \"npm run dev\" \"php artisan serve\"  "
+        "local": "docker compose up -d && concurrently \"pnpm run dev\" \"php artisan serve\"  ",
+        "local2": "concurrently \"pnpm run dev\" \"php artisan serve\"  "
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",

@@ -15,8 +15,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        $fieldsLabel = Project::getFields();
         $fields = (new Project)->getFillable();
-        return Inertia::render("Projects/Index", compact('projects', 'fields'));
+        return Inertia::render("Projects/Index", compact('projects',  'fields', 'fieldsLabel'));
         //
     }
 

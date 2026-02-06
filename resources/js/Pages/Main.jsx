@@ -1,6 +1,7 @@
 import Modal from '@/Components/Modal.jsx';
 import Layout from '@/Layouts/Layout.jsx';
 import Login from '@/Pages/Auth/Login.jsx';
+import Register from "@/Pages/Auth/Register.jsx";
 
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
@@ -8,14 +9,20 @@ import { useState } from 'react';
 export default function Main() {
     const auth = usePage().props.auth;
     const user = auth.user;
-    const [showLogin, setShowLogin] = useState(false);
 
-    const openLogin = () => setShowLogin(true);
-    const closeLogin =() => setShowLogin(false);
+    const [showLogin, setShowLogin]= useState(false);
+
+    const openLogin = ()=>setShowLogin(true);
+    const closeLogin = ()=>setShowLogin(false);
+    const [showRegister, setShowRegister]= useState(false);
+
+    const openRegister = ()=>setShowRegister(true);
+    const closeRegister = ()=>setShowRegister(false);
+
 
     return (
         <>
-            <Layout onLoginClick={openLogin}>
+            <Layout onLoginClick={openLogin} onRegisterClick={openRegister}>
                 {!user ? (
                     <div
                         className="hero min-h-full"
@@ -101,10 +108,17 @@ export default function Main() {
 
                     </>
                 )}
+                <Modal show={showLogin} onClose={closeLogin} >
+                    <Login onSuccess={closeLogin} />
+                </Modal>
+                <Modal show={showRegister} onClose={closeRegister} >
+                    <Register onSuccess={closeRegister} />
+                </Modal>
             </Layout>
-            <Modal show={showLogin} onClose={closeLogin}>
-                <Login onSuccess={closeLogin} />
-            </Modal>
+
+            {/*<Modal show={showLogin} onClose={closeLogin}>*/}
+            {/*    <Login onSuccess={closeLogin} />*/}
+            {/*</Modal>*/}
             )
         </>
     );

@@ -1,6 +1,6 @@
 import Layout from '@/Layouts/Layout.jsx';
 import { useState } from 'react';
-export default function Index({projects, fields}) {
+export default function Index({projects,  fields, fieldsLabel}) {
 
     const [sortField, setSortField] = useState(fields[0]);
     const [sortDirection, setSortDirection] = useState('asc');
@@ -10,7 +10,6 @@ export default function Index({projects, fields}) {
         const aVal = a[sortField];
         const bVal = b[sortField];
 
-     
 
         // comparación básica (string/number)
         if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
@@ -29,21 +28,26 @@ export default function Index({projects, fields}) {
             setSortDirection('asc');
         }
     }
+    console.log(projects);
+    console.log(sortedProjects);
+    console.log(fields);
+    console.log(fieldsLabel);
+
 
     return (
         <Layout>
-            <div className="h-96 w-96 overflow-x-auto">
+            <div className="h-96  overflow-x-auto">
                 <table className="table-xs table-pin-rows table-pin-cols table">
                     <thead>
                         <tr>
-                            {fields.map((field) => (
+                            {fieldsLabel.map((field, index) => (
                                 <th
-                                    key={field}
-                                    onClick={() => sort(field)}
+                                    key={fields[index]}
+                                    onClick={() => sort(fields[index])}
                                     className="cursor-pointer select-none"
                                 >
                                     {field}
-                                    {sortField === field && (
+                                    {sortField === fields[index] && (
                                         <span className="ml-1">
                                             {sortDirection === 'asc'
                                                 ? '▲'
